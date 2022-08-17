@@ -7,18 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		954EDB0A28AAD45600687DF4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954EDB0928AAD45600687DF4 /* Extensions.swift */; };
+		954EDB0C28AB7BE400687DF4 /* BrowseSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954EDB0B28AB7BE400687DF4 /* BrowseSongView.swift */; };
+		954EDB0E28AC8F1F00687DF4 /* RecommendedSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954EDB0D28AC8F1F00687DF4 /* RecommendedSongView.swift */; };
+		9599034E28AAC7CE0083AA0C /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599034D28AAC7CE0083AA0C /* MusicViewModel.swift */; };
 		95E7A10428AA19DE0009D4D5 /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7A10328AA19DE0009D4D5 /* MusicPlayerApp.swift */; };
-		95E7A10628AA19DE0009D4D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7A10528AA19DE0009D4D5 /* ContentView.swift */; };
+		95E7A10628AA19DE0009D4D5 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7A10528AA19DE0009D4D5 /* MusicPlayerView.swift */; };
 		95E7A10828AA19DF0009D4D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E7A10728AA19DF0009D4D5 /* Assets.xcassets */; };
 		95E7A10B28AA19DF0009D4D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E7A10A28AA19DF0009D4D5 /* Preview Assets.xcassets */; };
+		95E7A11228AA1D1F0009D4D5 /* Eminem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 95E7A11128AA1D1F0009D4D5 /* Eminem.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		954EDB0928AAD45600687DF4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		954EDB0B28AB7BE400687DF4 /* BrowseSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseSongView.swift; sourceTree = "<group>"; };
+		954EDB0D28AC8F1F00687DF4 /* RecommendedSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedSongView.swift; sourceTree = "<group>"; };
+		9599034D28AAC7CE0083AA0C /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		95E7A10028AA19DE0009D4D5 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E7A10328AA19DE0009D4D5 /* MusicPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerApp.swift; sourceTree = "<group>"; };
-		95E7A10528AA19DE0009D4D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		95E7A10528AA19DE0009D4D5 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		95E7A10728AA19DF0009D4D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E7A10A28AA19DF0009D4D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		95E7A11128AA1D1F0009D4D5 /* Eminem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Eminem.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,10 +42,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9557F6A528AA62CD00200C97 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9599034D28AAC7CE0083AA0C /* MusicViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9599034C28AAC78A0083AA0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95E7A10528AA19DE0009D4D5 /* MusicPlayerView.swift */,
+				954EDB0B28AB7BE400687DF4 /* BrowseSongView.swift */,
+				954EDB0D28AC8F1F00687DF4 /* RecommendedSongView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		95E7A0F728AA19DE0009D4D5 = {
 			isa = PBXGroup;
 			children = (
 				95E7A10228AA19DE0009D4D5 /* MusicPlayer */,
+				95E7A11128AA1D1F0009D4D5 /* Eminem.mp3 */,
 				95E7A10128AA19DE0009D4D5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,9 +81,11 @@
 			isa = PBXGroup;
 			children = (
 				95E7A10328AA19DE0009D4D5 /* MusicPlayerApp.swift */,
-				95E7A10528AA19DE0009D4D5 /* ContentView.swift */,
+				9599034C28AAC78A0083AA0C /* View */,
+				9557F6A528AA62CD00200C97 /* ViewModel */,
 				95E7A10728AA19DF0009D4D5 /* Assets.xcassets */,
 				95E7A10928AA19DF0009D4D5 /* Preview Content */,
+				954EDB0928AAD45600687DF4 /* Extensions.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -125,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E7A11228AA1D1F0009D4D5 /* Eminem.mp3 in Resources */,
 				95E7A10B28AA19DF0009D4D5 /* Preview Assets.xcassets in Resources */,
 				95E7A10828AA19DF0009D4D5 /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +169,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95E7A10628AA19DE0009D4D5 /* ContentView.swift in Sources */,
+				9599034E28AAC7CE0083AA0C /* MusicViewModel.swift in Sources */,
+				95E7A10628AA19DE0009D4D5 /* MusicPlayerView.swift in Sources */,
 				95E7A10428AA19DE0009D4D5 /* MusicPlayerApp.swift in Sources */,
+				954EDB0E28AC8F1F00687DF4 /* RecommendedSongView.swift in Sources */,
+				954EDB0C28AB7BE400687DF4 /* BrowseSongView.swift in Sources */,
+				954EDB0A28AAD45600687DF4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
