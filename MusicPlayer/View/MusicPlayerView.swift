@@ -58,6 +58,10 @@ struct MusicPlayerView: View {
                             value: $value,
                             in: 0...player.duration,
                             onEditingChanged: { editing in
+                                
+                                if !editing {
+                                    player.currentTime = value
+                                }
                                 isEditing = editing
                             }
                         )
@@ -85,9 +89,15 @@ struct MusicPlayerView: View {
                         }, size: 30)
                         .padding(.leading)
                         
-                        ButtonComponent(labelIcon: "play.circle.fill", action: {
-                            musicManager.playAudio()
-                        }, size: 90)
+                        if !player.isPlaying {
+                            ButtonComponent(labelIcon: "play.circle.fill", action: {
+                                musicManager.playAudio()
+                            }, size: 90)
+                        }else{
+                            ButtonComponent(labelIcon: "pause.circle.fill", action: {
+                                musicManager.pauseAudio()
+                            }, size: 90)
+                        }
                         
                         ButtonComponent(labelIcon: "forward.end.fill", action: {
                             musicManager.playAudio()
@@ -103,11 +113,12 @@ struct MusicPlayerView: View {
                 }
             }
             .onReceive(timer) { _ in
-                // set current time and duration to time interval
-                duration = musicManager.audioPlayer.duration
-                currentTime = musicManager.audioPlayer.currentTime
+                guard let player = musicManager.audioPlayer, !isEditing else { return }
                 
-                value = musicManager.audioPlayer.currentTime
+                // set current time and duration to time interval
+                duration = player.duration
+                currentTime = player.currentTime
+                value = player.currentTime
             }
             .onAppear {
                 // get the url song path
