@@ -10,25 +10,39 @@
 		954EDB0A28AAD45600687DF4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954EDB0928AAD45600687DF4 /* Extensions.swift */; };
 		954EDB0C28AB7BE400687DF4 /* BrowseSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954EDB0B28AB7BE400687DF4 /* BrowseSongView.swift */; };
 		954EDB0E28AC8F1F00687DF4 /* RecommendedSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954EDB0D28AC8F1F00687DF4 /* RecommendedSongView.swift */; };
+		956476EE28B3B2EF00CAB435 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956476ED28B3B2EF00CAB435 /* Song.swift */; };
+		956476F428B3BE3F00CAB435 /* Look Over Your Shoulder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 956476EF28B3BE3E00CAB435 /* Look Over Your Shoulder.mp3 */; };
+		956476F528B3BE3F00CAB435 /* Nasty.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 956476F028B3BE3E00CAB435 /* Nasty.mp3 */; };
+		956476F628B3BE3F00CAB435 /* United In Grief.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 956476F128B3BE3E00CAB435 /* United In Grief.mp3 */; };
+		956476F728B3BE3F00CAB435 /* Cinderella Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 956476F228B3BE3F00CAB435 /* Cinderella Man.mp3 */; };
+		956476F828B3BE3F00CAB435 /* Rap God.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 956476F328B3BE3F00CAB435 /* Rap God.mp3 */; };
+		956476FA28B479B100CAB435 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956476F928B479B100CAB435 /* MusicPlayerView.swift */; };
+		956476FD28B5DAC400CAB435 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956476FC28B5DAC400CAB435 /* ButtonComponent.swift */; };
 		9599034E28AAC7CE0083AA0C /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599034D28AAC7CE0083AA0C /* MusicViewModel.swift */; };
 		95E7A10428AA19DE0009D4D5 /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7A10328AA19DE0009D4D5 /* MusicPlayerApp.swift */; };
-		95E7A10628AA19DE0009D4D5 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7A10528AA19DE0009D4D5 /* MusicPlayerView.swift */; };
+		95E7A10628AA19DE0009D4D5 /* ListMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7A10528AA19DE0009D4D5 /* ListMusicView.swift */; };
 		95E7A10828AA19DF0009D4D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E7A10728AA19DF0009D4D5 /* Assets.xcassets */; };
 		95E7A10B28AA19DF0009D4D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E7A10A28AA19DF0009D4D5 /* Preview Assets.xcassets */; };
-		95E7A11228AA1D1F0009D4D5 /* Eminem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 95E7A11128AA1D1F0009D4D5 /* Eminem.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		954EDB0928AAD45600687DF4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		954EDB0B28AB7BE400687DF4 /* BrowseSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseSongView.swift; sourceTree = "<group>"; };
 		954EDB0D28AC8F1F00687DF4 /* RecommendedSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedSongView.swift; sourceTree = "<group>"; };
+		956476ED28B3B2EF00CAB435 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		956476EF28B3BE3E00CAB435 /* Look Over Your Shoulder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Look Over Your Shoulder.mp3"; sourceTree = "<group>"; };
+		956476F028B3BE3E00CAB435 /* Nasty.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Nasty.mp3; sourceTree = "<group>"; };
+		956476F128B3BE3E00CAB435 /* United In Grief.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "United In Grief.mp3"; sourceTree = "<group>"; };
+		956476F228B3BE3F00CAB435 /* Cinderella Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cinderella Man.mp3"; sourceTree = "<group>"; };
+		956476F328B3BE3F00CAB435 /* Rap God.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rap God.mp3"; sourceTree = "<group>"; };
+		956476F928B479B100CAB435 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
+		956476FC28B5DAC400CAB435 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		9599034D28AAC7CE0083AA0C /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		95E7A10028AA19DE0009D4D5 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E7A10328AA19DE0009D4D5 /* MusicPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerApp.swift; sourceTree = "<group>"; };
-		95E7A10528AA19DE0009D4D5 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
+		95E7A10528AA19DE0009D4D5 /* ListMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMusicView.swift; sourceTree = "<group>"; };
 		95E7A10728AA19DF0009D4D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E7A10A28AA19DF0009D4D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		95E7A11128AA1D1F0009D4D5 /* Eminem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Eminem.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +64,29 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		956476EC28B3B2DC00CAB435 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				956476ED28B3B2EF00CAB435 /* Song.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		956476FB28B5DA1F00CAB435 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				956476FC28B5DAC400CAB435 /* ButtonComponent.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		9599034C28AAC78A0083AA0C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95E7A10528AA19DE0009D4D5 /* MusicPlayerView.swift */,
+				95E7A10528AA19DE0009D4D5 /* ListMusicView.swift */,
 				954EDB0B28AB7BE400687DF4 /* BrowseSongView.swift */,
 				954EDB0D28AC8F1F00687DF4 /* RecommendedSongView.swift */,
+				956476F928B479B100CAB435 /* MusicPlayerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -64,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				95E7A10228AA19DE0009D4D5 /* MusicPlayer */,
-				95E7A11128AA1D1F0009D4D5 /* Eminem.mp3 */,
 				95E7A10128AA19DE0009D4D5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,9 +113,16 @@
 				95E7A10328AA19DE0009D4D5 /* MusicPlayerApp.swift */,
 				9599034C28AAC78A0083AA0C /* View */,
 				9557F6A528AA62CD00200C97 /* ViewModel */,
+				956476EC28B3B2DC00CAB435 /* Model */,
+				956476FB28B5DA1F00CAB435 /* Helpers */,
 				95E7A10728AA19DF0009D4D5 /* Assets.xcassets */,
 				95E7A10928AA19DF0009D4D5 /* Preview Content */,
 				954EDB0928AAD45600687DF4 /* Extensions.swift */,
+				956476F228B3BE3F00CAB435 /* Cinderella Man.mp3 */,
+				956476EF28B3BE3E00CAB435 /* Look Over Your Shoulder.mp3 */,
+				956476F028B3BE3E00CAB435 /* Nasty.mp3 */,
+				956476F328B3BE3F00CAB435 /* Rap God.mp3 */,
+				956476F128B3BE3E00CAB435 /* United In Grief.mp3 */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -156,8 +193,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95E7A11228AA1D1F0009D4D5 /* Eminem.mp3 in Resources */,
+				956476F828B3BE3F00CAB435 /* Rap God.mp3 in Resources */,
+				956476F428B3BE3F00CAB435 /* Look Over Your Shoulder.mp3 in Resources */,
+				956476F728B3BE3F00CAB435 /* Cinderella Man.mp3 in Resources */,
 				95E7A10B28AA19DF0009D4D5 /* Preview Assets.xcassets in Resources */,
+				956476F628B3BE3F00CAB435 /* United In Grief.mp3 in Resources */,
+				956476F528B3BE3F00CAB435 /* Nasty.mp3 in Resources */,
 				95E7A10828AA19DF0009D4D5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,11 +210,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956476EE28B3B2EF00CAB435 /* Song.swift in Sources */,
+				956476FA28B479B100CAB435 /* MusicPlayerView.swift in Sources */,
 				9599034E28AAC7CE0083AA0C /* MusicViewModel.swift in Sources */,
-				95E7A10628AA19DE0009D4D5 /* MusicPlayerView.swift in Sources */,
+				95E7A10628AA19DE0009D4D5 /* ListMusicView.swift in Sources */,
 				95E7A10428AA19DE0009D4D5 /* MusicPlayerApp.swift in Sources */,
 				954EDB0E28AC8F1F00687DF4 /* RecommendedSongView.swift in Sources */,
 				954EDB0C28AB7BE400687DF4 /* BrowseSongView.swift in Sources */,
+				956476FD28B5DAC400CAB435 /* ButtonComponent.swift in Sources */,
 				954EDB0A28AAD45600687DF4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

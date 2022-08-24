@@ -1,113 +1,132 @@
-//  ContentView.swift
+//
+//  MusicPlayerView.swift
 //  MusicPlayer
-//  Created by Ajea Smith on 8/15/22.
+//
+//  Created by Ajea Smith on 8/22/22.
 //
 
 import SwiftUI
 import AVFoundation
 
 struct MusicPlayerView: View {
-    init() {
-        let navBarAppearance = UINavigationBar.appearance()
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-    }
-    @StateObject var musicModel = MusicViewModel()
+    @EnvironmentObject var musicManager: MusicViewModel
+    
+    @State var song: Song
     @State private var currentTime = 0.0
     @State private var duration = 0.0
-    @State private var value = 50.0
+    @State private var value = 0.0
     @State private var isEditing = false
     
     let timer = Timer.publish(every: 0.5, on: .main, in: .common)
         .autoconnect()
     
     var body: some View {
-        
-        NavigationView {
-            ZStack(alignment:.leading){
+        ZStack {
+            // MARK: - Background
+            Color(red: 20/255, green: 0/255, blue: 79/255)
+                .ignoresSafeArea(.all, edges: .all)
+            
+            Circle()
+                .fill(Color(red: 147/255, green: 0/255, blue: 132/255))
+                .frame(width: 300, height: 300)
+                .position(x: 20, y: 370)
+                .blur(radius: 100)
+            
+            VStack{
+                // MARK: - Album Art
+                Spacer()
+                Image(song.albumArt)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 281, height: 321)
+                    .cornerRadius(48)
                 
-                // MARK: - Background
-                Color(red: 20/255, green: 0/255, blue: 79/255)
-                    .ignoresSafeArea(.all, edges: .all)
-                
-                Circle()
-                    .fill(Color(red: 147/255, green: 0/255, blue: 132/255))
-                    .frame(width: 200, height: 200)
-                    .position(x: 0, y: 570)
-                    .blur(radius: 100)
-                
-                // MARK: - Browse
-                VStack {
-                    ScrollView(.horizontal, showsIndicators: false){
-                        BrowseSongView()
-                    }
-                    .frame(height:195)
-                    
-                    Spacer()
-                    
-                    // MARK: - Recommeded
-                    ScrollView(showsIndicators: false){
-                        RecommendedSongView()
-                    }.frame(height:415)
+                // MARK: - Song Info
+                VStack{
+                    Text(song.name)
+                        .font(Font.system(size: 16))
+                        .bold()
+                    Text(song.artist)
+                        .font(Font.system(size: 14))
                 }
-                .foregroundColor(.white)
-                .padding()
-
+                .padding(.top, 20)
+                
+                if let player = musicManager.audioPlayer{
+                    // MARK: - Slider and Song Time
+                    VStack{
+                        Slider(
+                            value: $value,
+                            in: 0...player.duration,
+                            onEditingChanged: { editing in
+                                isEditing = editing
+                            }
+                        )
+                        .padding(.bottom, 22)
+                        
+                            
+                        HStack{
+                            Text(DateComponentsFormatter.positional.string(from: currentTime)?.dropFirst() ?? "0:00")
+                            Spacer()
+                            Text(DateComponentsFormatter.positional.string(from: duration - currentTime)?.dropFirst() ?? "0:00")
+                        }
+                        .foregroundColor(Color(red: 217/255, green: 217/255, blue: 217/255, opacity: 0.8))
+                    }
+                    .padding(.horizontal)
+                    
+                    // MARK: - Controls
+                    Spacer()
+                    HStack(spacing: 15){
+                        ButtonComponent(labelIcon: "shuffle", action: {
+                            musicManager.playAudio()
+                        }, size: 17)
+                        
+                        ButtonComponent(labelIcon: "backward.end.fill", action: {
+                            musicManager.playAudio()
+                        }, size: 30)
+                        .padding(.leading)
+                        
+                        ButtonComponent(labelIcon: "play.circle.fill", action: {
+                            musicManager.playAudio()
+                        }, size: 90)
+                        
+                        ButtonComponent(labelIcon: "forward.end.fill", action: {
+                            musicManager.playAudio()
+                        }, size: 30)
+                        .padding(.trailing)
+                        
+                        ButtonComponent(labelIcon: "repeat", action: {
+                            musicManager.playAudio()
+                        }, size: 17)
+                        
+                    }
+                    Spacer()
+                }
+            }
+            .onReceive(timer) { _ in
+                // set current time and duration to time interval
+                duration = musicManager.audioPlayer.duration
+                currentTime = musicManager.audioPlayer.currentTime
+                
+                value = musicManager.audioPlayer.currentTime
+            }
+            .onAppear {
+                // get the url song path
+                let soundFile = Bundle.main.path(forResource: song.songFile, ofType: nil)
+                
+                // set the audio player instance with url song path
+                musicManager.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundFile!))
+                
+                print("HELLO WORLD THIS IS WORKING---------------------------------", soundFile)
             }
             
-            .navigationTitle("Browse")
-
         }
-//        VStack {
-//            Button {
-//                musicModel.playAudio()
-//            } label: {
-//                Text("Play Sound")
-//            }
-//            .padding()
-//            .background(.blue)
-//            .foregroundColor(.white).cornerRadius(10)
-//
-//            Button {
-//                // pause the sound
-//                musicModel.pauseAudio()
-//            } label: {
-//                Text("Pause Sound")
-//            }
-//            .padding()
-//            .background(.red)
-//            .foregroundColor(.white).cornerRadius(10)
-//
-//            Slider(
-//                value: $value,
-//                in: 0...100,
-//                onEditingChanged: { editing in
-//                    isEditing = editing
-//                }
-//            )
-//            Text("\(value)")
-//                .foregroundColor(isEditing ? .red : .blue)
-//
-//            HStack{
-//                // remove leading zeros from time
-//                Text(DateComponentsFormatter.positional.string(from: currentTime)?.dropFirst() ?? "0:00")
-//
-//                Text(DateComponentsFormatter.positional.string(from: duration - currentTime)?.dropFirst() ?? "0:00")
-//            }
-//            .padding()
-//
-//        }.onReceive(timer) { _ in
-//            // set current time and duration to time interval
-//            duration = musicModel.audioPlayer.duration
-//            currentTime = musicModel.audioPlayer.currentTime
-//        }
-        
-        
+        .foregroundColor(.white)
+
     }
 }
 
-struct MusicPlayerView_Previews: PreviewProvider {
-    static var previews: some View {
-        MusicPlayerView()
-    }
-}
+//struct MusicPlayerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MusicPlayerView(song: Song(name: "", songFile: "", artist: "", albumArt: ""))
+//    }
+//}
