@@ -37,7 +37,6 @@ struct MusicPlayerView: View {
             
             VStack{
                 // MARK: - Album Art
-                Spacer()
                 Image(song.albumArt)
                     .resizable()
                     .scaledToFill()
