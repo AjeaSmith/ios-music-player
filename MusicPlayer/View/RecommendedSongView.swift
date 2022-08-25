@@ -34,8 +34,8 @@ struct RecommendedSongView: View {
     }
 }
 
-struct RecommendedSongView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecommendedSongView(song: Song(name: "", songFile: "", artist: "", albumArt: ""))
-    }
-}
+//struct RecommendedSongView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecommendedSongView(song: Song(id: 0, name: "", songFile: "", artist: "", albumArt: ""))
+//    }
+//}

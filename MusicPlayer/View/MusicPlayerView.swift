@@ -12,10 +12,13 @@ struct MusicPlayerView: View {
     @EnvironmentObject var musicManager: MusicViewModel
     
     @State var song: Song
+    @State var currentSongIndex: Int
+    
     @State private var currentTime = 0.0
     @State private var duration = 0.0
     @State private var value = 0.0
     @State private var isEditing = false
+    @State private var songs: [String] = ["Rap God.mp3", "Cinderella Man.mp3", "Nasty.mp3", "Look over your shoulder.mp3", "United in grief.mp3"]
     
     let timer = Timer.publish(every: 0.5, on: .main, in: .common)
         .autoconnect()
@@ -100,7 +103,14 @@ struct MusicPlayerView: View {
                         }
                         
                         ButtonComponent(labelIcon: "forward.end.fill", action: {
-                            musicManager.playAudio()
+                            if songs.count != currentSongIndex  {
+                                currentSongIndex += 1
+                               
+                                self.ChangeSongs()
+                            }else{
+                                currentSongIndex = 1
+                                self.ChangeSongs()
+                            }
                         }, size: 30)
                         .padding(.trailing)
                         
@@ -124,20 +134,29 @@ struct MusicPlayerView: View {
                 // get the url song path
                 let soundFile = Bundle.main.path(forResource: song.songFile, ofType: nil)
                 
-                // set the audio player instance with url song path
+                // set the audio player when view appears
                 musicManager.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundFile!))
-                
-                print("HELLO WORLD THIS IS WORKING---------------------------------", soundFile)
             }
             
         }
         .foregroundColor(.white)
 
     }
+    func ChangeSongs(){
+        
+        let url = Bundle.main.path(forResource: songs[currentSongIndex - 1], ofType: nil )
+        musicManager.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+        
+        // get next apporiate song object by currentIndex
+        let nextSong = musicManager.rapSongs.first { song in
+            songs[currentSongIndex - 1] == song.songFile
+        }
+        
+        // set the current song to next song for UI update
+        song = nextSong ?? Song(id: 1, name: "", songFile: "", artist: "", albumArt: "")
+        
+        musicManager.audioPlayer.play()
+
+    }
 }
 
-//struct MusicPlayerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MusicPlayerView(song: Song(name: "", songFile: "", artist: "", albumArt: ""))
-//    }
-//}

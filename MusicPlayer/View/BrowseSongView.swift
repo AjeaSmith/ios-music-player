@@ -32,8 +32,8 @@ struct BrowseSongView: View {
     }
 }
 
-struct BrowseSongView_Previews: PreviewProvider {
-    static var previews: some View {
-        BrowseSongView(song: Song(name: "", songFile: "", artist: "", albumArt: ""))
-    }
-}
+//struct BrowseSongView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BrowseSongView(song: Song(name: "", songFile: "", artist: "", albumArt: ""))
+//    }
+//}

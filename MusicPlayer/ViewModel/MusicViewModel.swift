@@ -14,11 +14,11 @@ class MusicViewModel: ObservableObject {
     init(){
     }
     var rapSongs = [
-        Song(name: "Rap God", songFile: "Rap God.mp3", artist: "Eminem", albumArt: "rap_god"),
-        Song(name: "Cinderalla Man", songFile: "Cinderella Man.mp3", artist: "Eminem",albumArt: "cinderella_man"),
-        Song(name: "Nasty", songFile: "Nasty.mp3", artist: "Logic", albumArt: "nasty"),
-        Song(name: "Look over your shoulders", songFile: "Look Over Your Shoulders.mp3", artist: "Busta Rhymes", albumArt: "look_over_your_shoulders"),
-        Song(name: "United in grief", songFile: "United In Grief.mp3", artist: "Kendrick Lamar", albumArt: "united_in_grief")
+        Song(id: 1, name: "Rap God", songFile: "Rap God.mp3", artist: "Eminem", albumArt: "rap_god"),
+        Song(id: 2, name: "Cinderalla Man", songFile: "Cinderella Man.mp3", artist: "Eminem",albumArt: "cinderella_man"),
+        Song(id: 3, name: "Nasty", songFile: "Nasty.mp3", artist: "Logic", albumArt: "nasty"),
+        Song(id: 4, name: "Look over your shoulder", songFile: "Look over your shoulder.mp3", artist: "Busta Rhymes", albumArt: "look_over_your_shoulders"),
+        Song(id: 5, name: "United in grief", songFile: "United in grief.mp3", artist: "Kendrick Lamar", albumArt: "united_in_grief")
     ]
 //    var popSongs = [
 //        Song(name: "Rap God", songFile: "", artist: "Eminem"),

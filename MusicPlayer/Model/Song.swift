@@ -7,6 +7,7 @@
 
 import Foundation
 struct Song: Hashable {
+    var id: Int
     var name: String
     var songFile: String
     var artist: String

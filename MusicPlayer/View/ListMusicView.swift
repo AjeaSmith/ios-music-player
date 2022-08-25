@@ -38,7 +38,7 @@ struct ListMusicView: View {
                     ScrollView(.horizontal, showsIndicators: false){
                         LazyHStack(spacing: 15) {
                             ForEach(musicModel.rapSongs, id: \.self) { song in
-                                NavigationLink(destination: MusicPlayerView(song: song), label: {
+                                NavigationLink(destination: MusicPlayerView(song: song, currentSongIndex: song.id), label: {
                                     BrowseSongView(song: song)
                                 })
                             }
@@ -61,7 +61,7 @@ struct ListMusicView: View {
                         LazyVStack(alignment: .leading, spacing: 15){
                             ForEach(musicModel.rapSongs, id: \.self) { song in
                                 NavigationLink {
-                                    MusicPlayerView(song: song)
+                                    MusicPlayerView(song: song, currentSongIndex: song.id)
                                 } label: {
                                     RecommendedSongView(song: song)
                                 }
@@ -82,10 +82,3 @@ struct ListMusicView: View {
         
     }
 }
-
-//struct ListMusicView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ListMusicView()
-//            .environmentObject(MusicViewModel())
-//    }
-//}
