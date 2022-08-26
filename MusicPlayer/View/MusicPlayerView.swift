@@ -53,8 +53,8 @@ struct MusicPlayerView: View {
                 }
                 .padding(.top, 20)
                 
+                // MARK: - Slider and Song Time
                 if let player = musicManager.audioPlayer{
-                    // MARK: - Slider and Song Time
                     VStack{
                         Slider(
                             value: $value,
@@ -83,21 +83,21 @@ struct MusicPlayerView: View {
                     Spacer()
                     HStack(spacing: 15){
                         ButtonComponent(labelIcon: "shuffle", action: {
-                            musicManager.playAudio()
+                            musicManager.play()
                         }, size: 17)
                         
                         ButtonComponent(labelIcon: "backward.end.fill", action: {
-                            musicManager.playAudio()
+                            musicManager.play()
                         }, size: 30)
                         .padding(.leading)
                         
                         if !player.isPlaying {
                             ButtonComponent(labelIcon: "play.circle.fill", action: {
-                                musicManager.playAudio()
+                                musicManager.play()
                             }, size: 90)
                         }else{
                             ButtonComponent(labelIcon: "pause.circle.fill", action: {
-                                musicManager.pauseAudio()
+                                musicManager.pause()
                             }, size: 90)
                         }
                         
@@ -114,7 +114,7 @@ struct MusicPlayerView: View {
                         .padding(.trailing)
                         
                         ButtonComponent(labelIcon: "repeat", action: {
-                            musicManager.playAudio()
+                            musicManager.repeatSong()
                         }, size: 17)
                         
                     }

@@ -20,19 +20,19 @@ class MusicViewModel: ObservableObject {
         Song(id: 4, name: "Look over your shoulder", songFile: "Look over your shoulder.mp3", artist: "Busta Rhymes", albumArt: "look_over_your_shoulders"),
         Song(id: 5, name: "United in grief", songFile: "United in grief.mp3", artist: "Kendrick Lamar", albumArt: "united_in_grief")
     ]
-//    var popSongs = [
-//        Song(name: "Rap God", songFile: "", artist: "Eminem"),
-//        Song(name: "Cinderalla Man", songFile: "", artist: "Eninem"),
-//        Song(name: "Nasty", songFile: "", artist: "Logic"),
-//        Song(name: "Look over your shoulders", songFile: "", artist: "Busta Rhymes"),
-//        Song(name: "United in grief", songFile: "", artist: "Kendrick Lamar")
-//    ]
     
-    func playAudio() {
+    func play() {
         self.audioPlayer.prepareToPlay()
         self.audioPlayer.play()
     }
-    func pauseAudio() {
+    func pause() {
         self.audioPlayer?.pause()
+    }
+    func repeatSong() {
+        if audioPlayer.numberOfLoops == -1 {
+            audioPlayer.numberOfLoops = 0
+        }else {
+            audioPlayer.numberOfLoops = -1
+        }
     }
 }
