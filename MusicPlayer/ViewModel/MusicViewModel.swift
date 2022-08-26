@@ -28,11 +28,7 @@ class MusicViewModel: ObservableObject {
     func pause() {
         self.audioPlayer?.pause()
     }
-    func repeatSong() {
-        if audioPlayer.numberOfLoops == -1 {
-            audioPlayer.numberOfLoops = 0
-        }else {
-            audioPlayer.numberOfLoops = -1
-        }
+    func repeatSong(num: Int) {
+        audioPlayer.numberOfLoops = num
     }
 }

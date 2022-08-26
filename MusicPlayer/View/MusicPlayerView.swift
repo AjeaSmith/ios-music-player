@@ -67,9 +67,7 @@ struct MusicPlayerView: View {
                                 isEditing = editing
                             }
                         )
-                        .padding(.bottom, 22)
                         
-                            
                         HStack{
                             Text(DateComponentsFormatter.positional.string(from: currentTime)?.dropFirst() ?? "0:00")
                             Spacer()
@@ -87,24 +85,27 @@ struct MusicPlayerView: View {
                         }, size: 17)
                         
                         ButtonComponent(labelIcon: "backward.end.fill", action: {
-                            musicManager.play()
+                            if currentSongIndex != 1  {
+                                currentSongIndex -= 1
+                                self.ChangeSongs()
+                            }else if currentSongIndex == 1{
+                                currentSongIndex = 5
+                                self.ChangeSongs()
+                            }
                         }, size: 30)
                         .padding(.leading)
-                        
-                        if !player.isPlaying {
-                            ButtonComponent(labelIcon: "play.circle.fill", action: {
-                                musicManager.play()
-                            }, size: 90)
-                        }else{
-                            ButtonComponent(labelIcon: "pause.circle.fill", action: {
+                       
+                        ButtonComponent(labelIcon: !player.isPlaying ? "play.circle.fill":"pause.circle.fill", action: {
+                            if player.isPlaying {
                                 musicManager.pause()
-                            }, size: 90)
-                        }
-                        
+                            }else{
+                                musicManager.play()
+                            }
+                        }, size: 90)
+                    
                         ButtonComponent(labelIcon: "forward.end.fill", action: {
                             if songs.count != currentSongIndex  {
                                 currentSongIndex += 1
-                               
                                 self.ChangeSongs()
                             }else{
                                 currentSongIndex = 1
@@ -113,8 +114,12 @@ struct MusicPlayerView: View {
                         }, size: 30)
                         .padding(.trailing)
                         
-                        ButtonComponent(labelIcon: "repeat", action: {
-                            musicManager.repeatSong()
+                        ButtonComponent(labelIcon: player.numberOfLoops == 0 ? "repeat": "repeat.1", action: {
+                            if player.numberOfLoops == 0{
+                                musicManager.repeatSong(num: -1)
+                            }else {
+                                musicManager.repeatSong(num: 0)
+                            }
                         }, size: 17)
                         
                     }
