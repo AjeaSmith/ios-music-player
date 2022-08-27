@@ -7,12 +7,16 @@
 
 import Foundation
 import AVFAudio
+import AVFoundation
 
 class MusicViewModel: ObservableObject {
     @Published var audioPlayer: AVAudioPlayer!
+    @Published var isShuffled: Bool! = false
     
     init(){
     }
+    @Published var songQueue: [String] = ["Rap God.mp3", "Cinderella Man.mp3", "Nasty.mp3", "Look over your shoulder.mp3", "United in grief.mp3"]
+    
     var rapSongs = [
         Song(id: 1, name: "Rap God", songFile: "Rap God.mp3", artist: "Eminem", albumArt: "rap_god"),
         Song(id: 2, name: "Cinderalla Man", songFile: "Cinderella Man.mp3", artist: "Eminem",albumArt: "cinderella_man"),
@@ -28,7 +32,17 @@ class MusicViewModel: ObservableObject {
     func pause() {
         self.audioPlayer?.pause()
     }
+    
     func repeatSong(num: Int) {
-        audioPlayer.numberOfLoops = num
+        self.audioPlayer.numberOfLoops = num
+    }
+    func shuffle() {
+        self.isShuffled = true
+        let shuffle = self.songQueue.shuffled()
+        self.songQueue = shuffle
+    }
+    func notShuffled() {
+        self.isShuffled = false
+        self.songQueue = ["Rap God.mp3", "Cinderella Man.mp3", "Nasty.mp3", "Look over your shoulder.mp3", "United in grief.mp3"]
     }
 }

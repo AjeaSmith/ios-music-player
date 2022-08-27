@@ -18,7 +18,6 @@ struct MusicPlayerView: View {
     @State private var duration = 0.0
     @State private var value = 0.0
     @State private var isEditing = false
-    @State private var songs: [String] = ["Rap God.mp3", "Cinderella Man.mp3", "Nasty.mp3", "Look over your shoulder.mp3", "United in grief.mp3"]
     
     let timer = Timer.publish(every: 0.5, on: .main, in: .common)
         .autoconnect()
@@ -80,10 +79,16 @@ struct MusicPlayerView: View {
                     // MARK: - Controls
                     Spacer()
                     HStack(spacing: 15){
-                        ButtonComponent(labelIcon: "shuffle", action: {
-                            musicManager.play()
+                        // MARK: -- Shuffle Songs
+                        ButtonComponent(labelIcon: !musicManager.isShuffled ? "shuffle" : "shuffle.circle.fill", action: {
+                            if !musicManager.isShuffled {
+                                musicManager.shuffle()
+                            }else{
+                                musicManager.notShuffled()
+                            }
                         }, size: 17)
                         
+                        // MARK: -- Go backwards
                         ButtonComponent(labelIcon: "backward.end.fill", action: {
                             if currentSongIndex != 1  {
                                 currentSongIndex -= 1
@@ -95,6 +100,7 @@ struct MusicPlayerView: View {
                         }, size: 30)
                         .padding(.leading)
                        
+                        // MARK: -- Play songs
                         ButtonComponent(labelIcon: !player.isPlaying ? "play.circle.fill":"pause.circle.fill", action: {
                             if player.isPlaying {
                                 musicManager.pause()
@@ -103,8 +109,9 @@ struct MusicPlayerView: View {
                             }
                         }, size: 90)
                     
+                        // MARK: -- Go forwards
                         ButtonComponent(labelIcon: "forward.end.fill", action: {
-                            if songs.count != currentSongIndex  {
+                            if musicManager.songQueue.count != currentSongIndex  {
                                 currentSongIndex += 1
                                 self.ChangeSongs()
                             }else{
@@ -114,6 +121,7 @@ struct MusicPlayerView: View {
                         }, size: 30)
                         .padding(.trailing)
                         
+                        // MARK: -- Repeat songs
                         ButtonComponent(labelIcon: player.numberOfLoops == 0 ? "repeat": "repeat.1", action: {
                             if player.numberOfLoops == 0{
                                 musicManager.repeatSong(num: -1)
@@ -148,17 +156,17 @@ struct MusicPlayerView: View {
     }
     func ChangeSongs(){
         
-        let url = Bundle.main.path(forResource: songs[currentSongIndex - 1], ofType: nil )
+        let url = Bundle.main.path(forResource: musicManager.songQueue[currentSongIndex - 1], ofType: nil )
         musicManager.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
-        
+
         // get next apporiate song object by currentIndex
         let nextSong = musicManager.rapSongs.first { song in
-            songs[currentSongIndex - 1] == song.songFile
+            musicManager.songQueue[currentSongIndex - 1] == song.songFile
         }
-        
+
         // set the current song to next song for UI update
         song = nextSong ?? Song(id: 1, name: "", songFile: "", artist: "", albumArt: "")
-        
+
         musicManager.audioPlayer.play()
 
     }
